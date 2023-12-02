@@ -1,4 +1,4 @@
-# protoboard-toolhead-board
+# perfboard-toolhead-board
 An RP2040 powered toolhead board, not intended to replace the cable chains, but to simplify wiring and add expandability
 
 ## Pinout
@@ -52,7 +52,7 @@ Compared to hartk's Stealthburner Toolhead Board...
 ## BOM
 ![IMG_1769](https://github.com/jrymk/protoboard-toolhead-board/assets/39593345/c42bd70b-a8af-4665-95f9-85ee6975bfc9)
 
-- 2.54 protoboard
+- 2.54 perfboard
 - Waveshare RP2040-Zero
 - A kit of JST XH2.54 connectors (from 2p to 5p and 6p, which is pretty common for the kits)
 - A kit of SMD transistors, or specifically, AO3400 mosfets and BAV99 diodes
