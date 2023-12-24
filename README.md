@@ -7,43 +7,40 @@ An RP2040 powered toolhead board, not intended to replace the cable chains, but 
 | --- | --- | --- |
 | hotend | 24V, **HE0** | |
 | hotend thermistor | GND | IO26 |
-| stepper | **MOT-E** | |
+| stepper | 24V | IOx, IOx, IOx, IOx, IOx |
 | rp2040 | GND, 5V, **TX, RX** | IO0, IO1 |
 | hotend fan | 24V | IOx |
 | parts cooling fan | 24V | IOx |
 | rgb | GND. 5V | IOx |
 | probe | GND, 24V, **PROBE** | |
-| endstops | GND | 3V3, IOx, IOx... |
+| endstops | GND, **ENDSTOP-X, ENDSTOP-A** | 3V3, IOx, IOx... |
 | adxl345 | GND | 3V3, SPI0 |
 | thermistors | GND | IO27, IO28, IO29 |
 
 Connections to the electronics bay
-- J1 (XH2.54-6P)
+- J1 (XH2.54-4P)
   - HE
   - GND
-  - MOT-E 1A
-  - MOT-E 1B
-  - MOT-E 2A
-  - MOT-E 2B
-- J2 (XH2.54-5P)
-  - 24V
   - 5V
+  - 24V
+- J2 (XH2.54-5P)
   - RP-TX
   - RP-RX
+  - ENDSTOP-1
+  - ENDSTOP-2
   - PROBE
  
 ## Why
 
 Compared to a CAN toolhead board...
-- extruder motor driver is not cooking in the chamber heat
 - simple breakout of the uart pins, instead of CAN which I don't really like
-- hardwired probe signal to prevent multi mcu homing causing inaccuracies, can probe faster
+- hardwired probe and endstop signal to prevent multi mcu homing causing inaccuracies, can probe faster
 - DIYable with cheap and easily obtainable parts, also customizable
 - all XH2.54 connectors, very common in 3D printers and you should have an assortment kit of it
 - remote ADXL that hard mounts nearer the nozzle for actually useful readings (the shaper results of EBB36 mounted on the extruder on my Voron 0 is barely usable)
 
 Compared to hartk's Stealthburner Toolhead Board...
-- from 16 wires to 11 wires
+- from 16 wires to 9 wires
 - from hard to find molex (14p/2p input and 2p heater/thermistor) to super common XH2.54 (rated for 3A peak, so up to 72W heater)
 - from PH2.0 to XH2.54 (for fans, probe and other peripherals)
 - tons of pins for expandability, like filament, ERCF/TradRack sensors, load cells, etc.
